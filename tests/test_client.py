@@ -50,3 +50,49 @@ class TestClient(TestCase):
         # Assert
         self.assertEqual("email@pixell-river.com", client._Client__email_address)
 
+    ### client_number Property Tests
+
+    def test_client_number_accessor_valid_client_returns_client_number(self):
+        # Arrange
+        expected = 444
+
+        # Act & Assert
+        self.assertEqual(expected, self.client.client_number)
+
+    ### first_name Property Tests
+
+    def test_first_name_accessor_valid_client_returns_first_name(self):
+        # Arrange 
+        expected = "Edraque"
+
+        # Act & Assert
+        self.assertEqual(expected, self.client.first_name)
+
+    ### last_name Property Tests
+
+    def test_last_name_accessor_valid_client_returns_last_name(self):
+        # Arrange
+        expected = "Maglaque"
+
+        # Act & Assert
+        self.assertEqual(expected, self.client.last_name)
+
+    ### email_address Property Tests
+
+    def test_email_address_accessor_valid_client_returns_email_address(self):
+        # Arrange
+        expected = "emaglaque2@academic.rrc.ca"
+
+        # Act & Assert
+        self.assertEqual(expected, self.client.email_address)
+
+    ### __str__() Tests
+
+    def test_str_valid_client_returns_formatted_string(self):
+        # Arrange
+        expected = (
+            "Maglaque, Edraque [444] - emaglaque2@academic.rrc.ca\n"
+        )
+
+        # Act & Assert
+        self.assertEqual(expected, str(self.client))
