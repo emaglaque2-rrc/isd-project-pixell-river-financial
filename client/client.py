@@ -94,3 +94,16 @@ class Client:
         
         """
         return self.__email_address
+    
+    def __str__(self) -> str:
+        """
+        Return a string representation of the class instance. 
+
+        Returns:
+            str: The Client instance formatted as a string.
+        
+        """
+        return (
+            f"{self.__last_name}, {self.__first_name} "
+            f"[{self.__client_number}] - {self.__email_address}\n"
+        )
