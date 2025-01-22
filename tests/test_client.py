@@ -96,3 +96,4 @@ class TestClient(TestCase):
 
         # Act & Assert
         self.assertEqual(expected, str(self.client))
+        

@@ -8,7 +8,7 @@ __version__ = "1.0.0"
 from email_validator import validate_email, EmailNotValidError
 
 class Client:
-    """ """
+    """Client class: Manages a client's personal information."""
 
     def __init__(self, client_number: int, first_name: str, last_name: str,
                  email_address: str):
