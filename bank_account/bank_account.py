@@ -43,3 +43,39 @@ class BankAccount:
             self.__balance = float(balance)
         except ValueError:
             self.__balance = 0.0
+
+    @property
+    def account_number(self) -> int:
+        """
+        The accessor for the account_number attribute. 
+
+        Returns:
+            int: An integer value representing the bank account number.
+        
+        """
+        return self.__account_number
+    
+    @property
+    def client_number(self) -> int:
+        """
+        The accessor for the client_number attribute.
+
+        Returns:
+            int: An integer value representing the client number 
+                 representing the account holder.
+        
+        """
+        return self.__client_number
+    
+    @property
+    def balance(self) -> float:
+        """
+        The accessor for the balance attribute.
+
+        Returns:
+            float: A float value representing the current balance of 
+                   the bank account.
+        
+        """
+        return self.__balance
+    
