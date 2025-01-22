@@ -107,3 +107,4 @@ class Client:
             f"{self.__last_name}, {self.__first_name} "
             f"[{self.__client_number}] - {self.__email_address}\n"
         )
+    
