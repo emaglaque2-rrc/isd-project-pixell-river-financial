@@ -21,6 +21,12 @@ class BankAccount:
             balance (float): A float value representing the current 
                              balance of the bank account.
 
+        Returns:
+            ValueError: Raised when account_number and client_number is
+                        not numeric, and when balance can't be converted
+                        into a float - then assigns balance a default
+                        value of 0.0.
+
         """
 
         if isinstance(account_number, int):
