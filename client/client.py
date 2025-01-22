@@ -23,4 +23,30 @@ class Client:
             email_address (str): A string value the client's email 
                                 address.
 
+        Returns:
+            ValueError: Raised when client_number is not numeric, and
+                        when first_name and last_name is blank.
+            EmailNotValidError: Raised when email address is not valid,
+                                and then assigns a default email. 
         """
+
+        if isinstance(client_number, int):
+            self.__client_number = client_number
+        else:
+            raise ValueError("Client Number must be numeric.")
+        
+        if len(first_name.strip()) > 0:
+            self.__first_name = first_name
+        else: 
+            raise ValueError("First Name cannot be blank.")
+        
+        if len(last_name.strip()) > 0:
+            self.__last_name = last_name
+        else:
+            raise ValueError("Last Name cannot be blank.")
+        
+        try:
+            validated_email = validate_email(email_address, check_deliverability = False)
+            self.__email_address = validated_email.normalized
+        except EmailNotValidError:
+            self.__email_address = "email@pixell-river.com"
