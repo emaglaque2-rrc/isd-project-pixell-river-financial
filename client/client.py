@@ -20,7 +20,7 @@ class Client:
                                 client number.
             first_name (str): A string value of the client's first name.
             last_name (str): A string value of the client's last name.
-            email_address (str): A string value the client's email 
+            email_address (str): A string value of the client's email 
                                 address.
 
         Returns:
@@ -50,3 +50,47 @@ class Client:
             self.__email_address = validated_email.normalized
         except EmailNotValidError:
             self.__email_address = "email@pixell-river.com"
+
+    @property
+    def client_number(self) -> int:
+        """
+        The accessor for the client_number attribute.
+
+        Returns:
+            int: An integer value representing the client number.
+
+        """
+        return self.__client_number
+    
+    @property
+    def first_name(self) -> str:
+        """
+        The accessor for the first_name attribute.
+
+        Returns:
+            str: A string value of the client's first name.
+
+        """
+        return self.__first_name
+    
+    @property
+    def last_name(self) -> str:
+        """
+        The accessor for the last_name attribute.
+
+        Returns:
+            str: A string value of the client's last name.
+
+        """
+        return self.__last_name
+    
+    @property
+    def email_address(self) -> str:
+        """
+        The accessor for the email_address attribute.
+
+        Returns:
+            str: A string value of the client's email address.
+        
+        """
+        return self.__email_address
