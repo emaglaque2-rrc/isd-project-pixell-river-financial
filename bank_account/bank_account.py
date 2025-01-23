@@ -25,7 +25,7 @@ class BankAccount:
             ValueError: Raised when account_number and client_number is
                         not numeric, and when balance can't be converted
                         into a float - then assigns balance a default
-                        value of 0.0.
+                        value of 0.
 
         """
 
@@ -42,7 +42,7 @@ class BankAccount:
         try:
             self.__balance = float(balance)
         except ValueError:
-            self.__balance = 0.0
+            self.__balance = 0
 
     @property
     def account_number(self) -> int:
@@ -158,3 +158,4 @@ class BankAccount:
             f"Account Number: {self.__account_number} "
             f"Balance: ${self.__balance:,.2f}\n"
         )
+    

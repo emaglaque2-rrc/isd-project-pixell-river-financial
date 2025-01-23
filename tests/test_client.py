@@ -43,7 +43,7 @@ class TestClient(TestCase):
         with self.assertRaises(ValueError):
             client = Client(444, "Edraque", "   ", "emaglaque2@academic.rrc.ca")
 
-    def test_init_invalid_email_address_raises_emailnotvaliderror_set_to_default_value(self):
+    def test_init_invalid_email_address_set_to_default_value(self):
         # Arrange & Act
         client = Client(444, "Edraque", "Maglaque", "emaglaque2academicrrcca")
 
@@ -96,4 +96,3 @@ class TestClient(TestCase):
 
         # Act & Assert
         self.assertEqual(expected, str(self.client))
-        
