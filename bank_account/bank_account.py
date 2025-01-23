@@ -87,9 +87,33 @@ class BankAccount:
             amount (float): The number to be added into the bank
                             account, it could be negative as well.
         
+        Returns:
+            ValueError: Raised when amount is an invalid value.
+            
         """
         try:
             valid_amount = float(amount)
             self.__balance += valid_amount
         except ValueError:
             print("Invalid value, balance not updated.")
+        
+    def deposit(self, amount: float) -> None:
+        """
+        Makes a deposit into the client's bank account.
+
+        Args:
+            amount (float): The number to be deposited into the bank
+                            account.
+        
+        Returns:
+            ValueError: Raised when amount is not numeric and 
+                        not positive.
+        
+        """
+        if not isinstance(amount, float):
+            raise ValueError(f"Deposit amount: {amount} must be numeric.")
+        
+        if amount <= 0:
+            raise ValueError(f"Deposit amount: ${amount:,.2f} must be positive.")
+        
+        self.update_balance(amount)
