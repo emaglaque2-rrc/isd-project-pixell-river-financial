@@ -79,3 +79,17 @@ class BankAccount:
         """
         return self.__balance
     
+    def update_balance(self, amount: float) -> None:
+        """
+        Updates the balance of the client's bank account.
+
+        Args:
+            amount (float): The number to be added into the bank
+                            account, it could be negative as well.
+        
+        """
+        try:
+            valid_amount = float(amount)
+            self.__balance += valid_amount
+        except ValueError:
+            print("Invalid value, balance not updated.")
