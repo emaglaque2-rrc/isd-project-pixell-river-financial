@@ -92,3 +92,53 @@ class TestBankAccount(TestCase):
 
         # Assert
         self.assertEqual(expected, round(self.bank_account._BankAccount__balance, 2))
+
+    def test_update_balance_nonnumeric_amount_balance_attribute_stays_the_same(self):
+        # Arrange
+        expected = 8.50
+
+        # Act
+        self.bank_account.update_balance("invalid")
+
+        # Assert
+        self.assertEqual(expected, round(self.bank_account._BankAccount__balance, 2))
+
+    ### deposit() Tests
+
+    def test_deposit_valid_deposit_amount_returns_correct_balance(self):
+        # Arrange
+        expected = 18.50
+
+        # Act
+        self.bank_account.deposit(10.00)
+
+        # Assert
+        self.assertEqual(expected, round(self.bank_account._BankAccount__balance, 2))
+
+    def test_deposit_negative_amount_raises_valueerror(self):
+        # Arrange, Act & Assert
+        with self.assertRaises(ValueError):
+            self.bank_account.deposit(-10.00)
+
+    ### withdraw() Tests
+
+    def test_withdraw_valid_withdrawal_amount_returns_correct_difference_with_balance(self):
+        # Arrange
+        expected = 3.50
+
+        # Act
+        self.bank_account.withdraw(5.00)
+
+        # Assert
+        self.assertEqual(expected, round(self.bank_account._BankAccount__balance, 2))
+
+    def test_withdraw_negative_withdrawal_amount_raises_valueerror(self):
+        # Arrange, Act & Assert
+        with self.assertRaises(ValueError):
+            self.bank_account.withdraw(-5.00)
+
+    def test_withdraw_withdrawal_amount_exceeds_balance_raises_valueerror(self):
+        # Arrange, Act & Assert
+        with self.assertRaises(ValueError):
+            self.bank_account.withdraw(10.00)
+            
