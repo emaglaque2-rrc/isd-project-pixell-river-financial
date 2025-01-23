@@ -140,8 +140,21 @@ class BankAccount:
         
         if amount > self.__balance:
             raise ValueError(
-                f"Withdrawal amount: ${amount:,.2f} must not exceed the account\
-                balance: ${self.__balance:,.2f}"
+                f"Withdrawal amount: ${amount:,.2f} must not exceed the "
+                f"account balance: ${self.__balance:,.2f}"
                 )
     
         self.update_balance(-amount)
+
+    def __str__(self) -> str:
+        """
+        Return a string representation of the class instance.
+
+        Returns:
+            str: The BankAccount class instance formatted as a string.
+        
+        """
+        return (
+            f"Account Number: {self.__account_number} "
+            f"Balance: ${self.__balance:,.2f}\n"
+        )
