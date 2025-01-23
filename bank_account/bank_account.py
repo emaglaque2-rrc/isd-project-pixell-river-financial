@@ -21,7 +21,7 @@ class BankAccount:
             balance (float): A float value representing the current 
                              balance of the bank account.
 
-        Returns:
+        Raises:
             ValueError: Raised when account_number and client_number is
                         not numeric, and when balance can't be converted
                         into a float - then assigns balance a default
@@ -87,9 +87,9 @@ class BankAccount:
             amount (float): The number to be added into the bank
                             account, it could be negative as well.
         
-        Returns:
+        Raises:
             ValueError: Raised when amount is an invalid value.
-            
+
         """
         try:
             valid_amount = float(amount)
@@ -105,7 +105,7 @@ class BankAccount:
             amount (float): The number to be deposited into the bank
                             account.
         
-        Returns:
+        Raises:
             ValueError: Raised when amount is not numeric and 
                         not positive.
         

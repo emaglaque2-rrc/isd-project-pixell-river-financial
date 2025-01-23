@@ -23,7 +23,7 @@ class Client:
             email_address (str): A string value of the client's email 
                                 address.
 
-        Returns:
+        Raises:
             ValueError: Raised when client_number is not numeric, and
                         when first_name and last_name is blank.
             EmailNotValidError: Raised when email address is not valid,
