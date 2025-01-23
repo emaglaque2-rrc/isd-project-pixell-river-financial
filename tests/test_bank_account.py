@@ -142,3 +142,11 @@ class TestBankAccount(TestCase):
         with self.assertRaises(ValueError):
             self.bank_account.withdraw(10.00)
             
+    ### __str__() Tests
+
+    def test_str_valid_bank_account_returns_formatted_string(self):
+        # Arrange
+        expected = ("Account Number: 444 Balance: $8.50\n")
+
+        # Act & Assert
+        self.assertEqual(expected, str(self.bank_account))
