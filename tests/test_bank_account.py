@@ -1,11 +1,12 @@
 """
 Description: Unit tests for the BankAccount class.
-Author: ACE Faculty
-Credits: Edraque Maglaque
 Usage: To execute all tests in the terminal execute 
-the following command:
-    python -m unittest tests/test_bank_account.py
+       the following command:
+                        python -m unittest tests/test_bank_account.py
 """
+__author__ = "ACE Faculty"
+__version__ = "1.1.0"
+__credits__ = "Edraque Maglaque"
 
 from bank_account.bank_account import BankAccount
 from unittest import TestCase

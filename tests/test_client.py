@@ -1,11 +1,12 @@
 """
 Description: Unit tests for the Client class.
-Author: ACE Faculty
-Credits: Edraque Maglaque
 Usage: To execute all tests in the terminal execute 
-the following command:
-    python -m unittest tests/test_client.py
+       the following command:
+                            python -m unittest tests/test_client.py
 """
+__author__ = "ACE Faculty"
+__version__ = "1.1.0"
+__credits__ = "Edraque Maglaque"
 
 from client.client import Client
 from unittest import TestCase

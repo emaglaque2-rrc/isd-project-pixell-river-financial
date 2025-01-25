@@ -1,12 +1,10 @@
-"""
-Description:
-"""
+"""Description: A class to manage BankAccount objects."""
 
 __author__ = "Edraque Maglaque"
 __version__ = "1.0.0"
 
 class BankAccount:
-    """ """
+    """BankAccount class: Manages a client's bank account."""
 
     def __init__(self, account_number: int, client_number: int, balance: float):
         """
@@ -23,9 +21,7 @@ class BankAccount:
 
         Raises:
             ValueError: Raised when account_number and client_number is
-                        not numeric, and when balance can't be converted
-                        into a float - then assigns balance a default
-                        value of 0.
+                        not numeric.
 
         """
 
@@ -41,7 +37,7 @@ class BankAccount:
 
         try:
             self.__balance = float(balance)
-        except ValueError:
+        except:
             self.__balance = 0
 
     @property
@@ -86,16 +82,13 @@ class BankAccount:
         Args:
             amount (float): The number to be added into the bank
                             account, it could be negative as well.
-        
-        Raises:
-            ValueError: Raised when amount is an invalid value.
 
         """
         try:
             valid_amount = float(amount)
             self.__balance += valid_amount
-        except ValueError:
-            print("Invalid value, balance not updated.")
+        except:
+            pass
         
     def deposit(self, amount: float) -> None:
         """
@@ -141,7 +134,7 @@ class BankAccount:
         if amount > self.__balance:
             raise ValueError(
                 f"Withdrawal amount: ${amount:,.2f} must not exceed the "
-                f"account balance: ${self.__balance:,.2f}"
+                + f"account balance: ${self.__balance:,.2f}"
                 )
     
         self.update_balance(-amount)
@@ -156,6 +149,6 @@ class BankAccount:
         """
         return (
             f"Account Number: {self.__account_number} "
-            f"Balance: ${self.__balance:,.2f}\n"
+            + f"Balance: ${self.__balance:,.2f}\n"
         )
     

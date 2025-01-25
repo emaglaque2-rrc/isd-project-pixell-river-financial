@@ -1,6 +1,4 @@
-"""
-Description: 
-"""
+"""Description: A class to manage Client objects."""
 
 __author__ = "Edraque Maglaque"
 __version__ = "1.0.0"
@@ -17,17 +15,16 @@ class Client:
 
         Args:
             client_number (int): An integer value representing the 
-                                client number.
+                                 client number.
             first_name (str): A string value of the client's first name.
             last_name (str): A string value of the client's last name.
             email_address (str): A string value of the client's email 
-                                address.
+                                 address.
 
         Raises:
             ValueError: Raised when client_number is not numeric, and
                         when first_name and last_name is blank.
-            EmailNotValidError: Raised when email address is not valid,
-                                and then assigns a default email. 
+                        
         """
 
         if isinstance(client_number, int):
