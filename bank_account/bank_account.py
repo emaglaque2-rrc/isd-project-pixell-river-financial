@@ -1,7 +1,7 @@
 """Description: A class to manage BankAccount objects."""
 
 __author__ = "Edraque Maglaque"
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 class BankAccount:
     """BankAccount class: Manages a client's bank account."""
