@@ -50,3 +50,20 @@ class ChequingAccount(BankAccount):
         except:
             self.__overdraft_rate = 0.05
             
+    def __str__(self) -> str:
+        """
+         Returns a string representation of a ChequingAccount object.
+
+         Returns:
+            str: ChequingAccount formatted as a string.
+        
+        """
+        message = super().__str__()
+        message += (
+            f"Overdraft Limit: ${self.__overdraft_limit:.2f} "
+            + f"Overdraft Rate: {self.__overdraft_rate:.2%}% "
+            + "Account Type: Chequing"
+        )
+        return message
+    
+    
