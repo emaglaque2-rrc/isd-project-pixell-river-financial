@@ -15,6 +15,32 @@ class TestChequingAccount(TestCase):
     """Defines the unit tests for the ChequingAccount subclass."""
 
     def setUp(self):
-        self.chequing_account = ChequingAccount(444, 200304, 0, date(2020, 12, 4),
+        self.chequing_account = ChequingAccount(444, 200304, 0, date.today(),
                                                 -100, 0.05)
     
+    ### __init__() Tests
+
+    def test_init_valid_arguments_attributes_set(self):
+        chequing_account = ChequingAccount(444, 200304, 0, date.today(), -100, 0.05)
+
+        self.assertEqual(444, chequing_account._BankAccount__account_number)
+        self.assertEqual(200304, chequing_account._BankAccount__client_number)
+        self.assertEqual(0, chequing_account._BankAccount__balance)
+        self.assertEqual(date.today(), chequing_account._date_created)
+        self.assertEqual(-100, chequing_account._ChequingAccount__overdraft_limit)
+        self.assertEqual(0.05, chequing_account._ChequingAccount__overdraft_rate)
+
+    def test_init_invalid_overdraft_limit_set_to_default_value(self):
+        chequing_account = ChequingAccount(444, 200304, 0, date.today(), "invalid", 0.05)
+
+        self.assertEqual(-100, chequing_account._ChequingAccount__overdraft_limit)
+
+    def test_init_invalid_overdraft_rate_set_to_default_value(self):
+        chequing_account = ChequingAccount(444, 200304, 0, date.today(), -100, "invalid")
+
+        self.assertEqual(0.05, chequing_account._ChequingAccount__overdraft_rate)
+
+    def test_init_invalid_date_set_to_default_value(self):
+        chequing_account = ChequingAccount(444, 200304, 0, "invalid", -100, 0.05)
+
+        self.assertEqual(date.today(), chequing_account._date_created)
