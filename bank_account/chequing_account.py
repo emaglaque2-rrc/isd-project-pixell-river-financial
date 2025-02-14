@@ -61,7 +61,7 @@ class ChequingAccount(BankAccount):
         message = super().__str__()
         message += (
             f"Overdraft Limit: ${self.__overdraft_limit:.2f} "
-            + f"Overdraft Rate: {self.__overdraft_rate:.2%}% "
+            + f"Overdraft Rate: {self.__overdraft_rate:.2%} "
             + "Account Type: Chequing"
         )
         return message
@@ -81,7 +81,7 @@ class ChequingAccount(BankAccount):
         else:
             service_charge = (
                 self.BASE_SERVICE_CHARGE  
-                + (self.__overdraft_limit + self.balance) * self.__overdraft_rate
+                + (self.__overdraft_limit - self.balance) * self.__overdraft_rate
             )
 
         return service_charge

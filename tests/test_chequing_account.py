@@ -45,8 +45,34 @@ class TestChequingAccount(TestCase):
 
         self.assertEqual(date.today(), chequing_account._date_created)
 
+    ### get_service_charges() Tests
+
     def test_get_service_charges_balance_greater_than_overdraft_limit_set_to_base_value(self):
         expected_service_charge = 0.50
         actual_service_charge = self.chequing_account.get_service_charges()
 
         self.assertEqual(expected_service_charge, actual_service_charge)
+
+    def test_get_service_charges_balance_less_than_overdraft_limit_charges_calculated_accordingly(self):
+        self.chequing_account._BankAccount__balance = -600
+        expected_service_charge = 25.50
+        actual_service_charge = self.chequing_account.get_service_charges()
+
+        self.assertEqual(expected_service_charge, actual_service_charge)
+
+    def test_get_service_charges_balance_equal_to_overdraft_limit_set_to_base_value(self):
+        self.chequing_account._BankAccount__balance = -100
+        expected_service_charge = 0.50
+        actual_service_charge = self.chequing_account.get_service_charges()
+
+        self.assertEqual(expected_service_charge, actual_service_charge)
+
+    ### __str__() Tests
+
+    def test_str_valid_chequingaccount_returns_formatted_string(self):
+        expected = (
+            "Account Number: 444 Balance: $0.00\n"
+            + "Overdraft Limit: $-100.00 Overdraft Rate: 5.00% "
+            + "Account Type: Chequing")
+        
+        self.assertEqual(expected, str(self.chequing_account))
