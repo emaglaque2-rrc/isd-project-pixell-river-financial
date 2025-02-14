@@ -44,3 +44,9 @@ class TestChequingAccount(TestCase):
         chequing_account = ChequingAccount(444, 200304, 0, "invalid", -100, 0.05)
 
         self.assertEqual(date.today(), chequing_account._date_created)
+
+    def test_get_service_charges_balance_greater_than_overdraft_limit_set_to_base_value(self):
+        expected_service_charge = 0.50
+        actual_service_charge = self.chequing_account.get_service_charges()
+
+        self.assertEqual(expected_service_charge, actual_service_charge)
