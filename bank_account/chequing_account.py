@@ -66,4 +66,22 @@ class ChequingAccount(BankAccount):
         )
         return message
     
-    
+    def get_service_charges(self) -> float:
+        """
+        Calculates the service charge of the Chequing Account.
+
+        Returns:
+            float: The service charge of the Chequing Account.
+        
+        """
+        service_charge = 0
+        
+        if self.__balance >= self.__overdraft_limit:
+            service_charge = self.BASE_SERVICE_CHARGE
+        else:
+            service_charge = (
+                self.BASE_SERVICE_CHARGE  
+                + (self.__overdraft_limit + self.__balance) * self.__overdraft_rate
+            )
+
+        return f"${service_charge:.2f}"
