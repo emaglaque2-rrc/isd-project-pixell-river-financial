@@ -76,3 +76,4 @@ class TestChequingAccount(TestCase):
             + "Account Type: Chequing")
         
         self.assertEqual(expected, str(self.chequing_account))
+        
