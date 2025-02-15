@@ -55,7 +55,7 @@ class InvestmentAccount(BankAccount):
         if self._date_created >= self.TEN_YEARS_AGO:
             management_fee_message = f"${self.__management_fee:.2f}"
         else:
-            management_fee_message = "Waived Account"
+            management_fee_message = "Waived"
 
         message = super().__str__()
         message += (
