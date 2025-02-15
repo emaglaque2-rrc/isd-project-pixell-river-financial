@@ -59,3 +59,17 @@ class SavingsAccount(BankAccount):
 
         return message
     
+    def get_service_charges(self) -> float:
+        """
+        Calculates the service charge of the Savings Account.
+
+        Returns:
+            float: The service charge of the Savings Account.
+        
+        """
+        if self.balance >= self.__minimum_balance:
+            service_charge = self.BASE_SERVICE_CHARGE
+        else:
+            service_charge = self.BASE_SERVICE_CHARGE * self.SERVICE_CHARGE_PREMIUM
+
+        return service_charge
