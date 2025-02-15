@@ -58,3 +58,28 @@ class TestInvestmentAccount(TestCase):
         actual_service_charge = self.young_investment.get_service_charges()
 
         self.assertEqual(expected_service_charge, actual_service_charge)
+
+    ### __str__() Tests
+
+    def test_str_date_created_more_than_10_years_displays_waived_management_fee(self):
+        old_date = date.today() - timedelta(days = 11 * 365.25)
+
+        expected_message = (
+            f"Account Number: 444 Balance: $0.00\n"
+            + f"Date Created: {old_date} Management Fee: Waived "
+            + f"Account Type: Investment"
+        )
+
+        self.assertEqual(expected_message, str(self.old_investment))
+
+    def test_str_date_created_within_10_years_displays_management_fee_formatted(self):
+        young_date = date.today()
+
+        expected_message = (
+            f"Account Number: 444 Balance: $0.00\n"
+            + f"Date Created: {young_date} Management Fee: $2.00 "
+            + f"Account Type: Investment"
+        )
+
+        self.assertEqual(expected_message, str(self.young_investment))
+        

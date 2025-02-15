@@ -59,7 +59,7 @@ class InvestmentAccount(BankAccount):
 
         message = super().__str__()
         message += (
-            f"Date created: {self._date_created} "
+            f"Date Created: {self._date_created} "
             + f"Management Fee: {management_fee_message} Account Type: Investment"
         )
 
