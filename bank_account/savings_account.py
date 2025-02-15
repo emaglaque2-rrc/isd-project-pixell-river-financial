@@ -42,3 +42,20 @@ class SavingsAccount(BankAccount):
             self.__minimum_balance = 50.00
 
         self.SERVICE_CHARGE_PREMIUM = 2.00
+
+    def __str__(self) -> str:
+        """
+        Returns a string representation of a SavingsAccount object.
+
+         Returns:
+            str: SavingsAccount formatted as a string.
+        
+        """
+        message = super().__str__()
+        message += (
+            f"Minimum Balance: ${self.__minimum_balance:,.2f} "
+            + f"Account Type: Savings"
+        )
+
+        return message
+    
