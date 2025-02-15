@@ -42,3 +42,26 @@ class InvestmentAccount(BankAccount):
             self.__management_fee = 2.55
 
         self.TEN_YEARS_AGO = date.today() - timedelta(days = 10 * 365.25)
+
+    def __str__(self) -> str:
+        """
+        Returns a string representation of a InvestmentAccount object.
+
+         Returns:
+            str: InvestmentAccount formatted as a string.
+        
+        """
+        
+        if self._date_created >= self.TEN_YEARS_AGO:
+            management_fee_message = f"${self.__management_fee:.2f}"
+        else:
+            management_fee_message = "Waived Account"
+
+        message = super().__str__()
+        message += (
+            f"Date created: {self._date_created} "
+            + f"Management Fee: {management_fee_message} Account Type: Investment"
+        )
+
+        return message
+    
