@@ -73,3 +73,4 @@ class SavingsAccount(BankAccount):
             service_charge = self.BASE_SERVICE_CHARGE * self.SERVICE_CHARGE_PREMIUM
 
         return service_charge
+    
