@@ -35,3 +35,16 @@ the attribute itself.
 values are assigned to private attributes. This reinforces transformation and
 validation to the attribute's value. This ensures that the object always remains
 in a valid or "consistent" state.
+
+## Polymorphism
+
+Polymorphism was achieved in the BankAccount subclasses by:
+
+1. Utilizing method overriding within each subclass of BankAccount where the
+   get_service_charges method resides in, so it will do it's implementation
+   regardless of which instance or subclass it got invoked in, this ensures a
+   flexible usage of it.
+
+2. Within the client program, the get_service_charges method got called multiple
+   times, however it produced different results each time based on the object
+   that was calling it.
