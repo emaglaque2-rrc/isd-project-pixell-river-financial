@@ -65,3 +65,18 @@ class InvestmentAccount(BankAccount):
 
         return message
     
+    def get_service_charges(self) -> float:
+        """
+        Calculates the service charge of the Investment Account.
+
+        Returns:
+            float: The service charge of the Investment Account.
+        
+        """
+        if self._date_created < self.TEN_YEARS_AGO:
+            service_charge = self.BASE_SERVICE_CHARGE
+        else:
+            service_charge = self.BASE_SERVICE_CHARGE + self.__management_fee
+        
+        return service_charge
+    
