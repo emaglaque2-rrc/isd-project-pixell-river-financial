@@ -168,8 +168,8 @@ class BankAccount(ABC):
     @abstractmethod
     def get_service_charges(self) -> float:
         """
-        Return the calculated service charges that a BankAccount will 
-        incur. Implemented in subclass(es).
+        Return the calculated service charges. 
+        Implemented in subclass(es).
         
         """
         pass

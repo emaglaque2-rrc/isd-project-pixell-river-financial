@@ -15,13 +15,13 @@ class TestInvestmentAccount(TestCase):
     """Defines the unit tests for the InvestmentAccount subclass."""
 
     def setUp(self):
-        old_date = date.today() - timedelta(days = 11 * 365.25)
-        exact_date = date.today() - timedelta(days = 10 * 365.25)
-        young_date = date.today()
+        self.old_date = date.today() - timedelta(days = 11 * 365.25)
+        self.exact_date = date.today() - timedelta(days = 10 * 365.25)
+        self.young_date = date.today()
 
-        self.old_investment = InvestmentAccount(444, 200304, 0, old_date, 2.00)
-        self.exact_investment = InvestmentAccount(444, 200304, 0, exact_date, 2.00)
-        self.young_investment = InvestmentAccount(444, 200304, 0, young_date, 2.00)
+        self.old_investment = InvestmentAccount(444, 200304, 0, self.old_date, 2.00)
+        self.exact_investment = InvestmentAccount(444, 200304, 0, self.exact_date, 2.00)
+        self.young_investment = InvestmentAccount(444, 200304, 0, self.young_date, 2.00)
     
     ### __init__() Tests 
 
@@ -51,7 +51,7 @@ class TestInvestmentAccount(TestCase):
         expected_service_charge = 2.50
         actual_service_charge = self.exact_investment.get_service_charges()
 
-        self.assertEqual(expected_service_charge,actual_service_charge)
+        self.assertEqual(expected_service_charge, actual_service_charge)
 
     def test_get_service_charges_date_within_10_years_charge_equals_base_plus_management(self):
         expected_service_charge = 2.50
@@ -62,22 +62,18 @@ class TestInvestmentAccount(TestCase):
     ### __str__() Tests
 
     def test_str_date_created_more_than_10_years_displays_waived_management_fee(self):
-        old_date = date.today() - timedelta(days = 11 * 365.25)
-
         expected_message = (
             f"Account Number: 444 Balance: $0.00\n"
-            + f"Date Created: {old_date} Management Fee: Waived "
+            + f"Date Created: {self.old_date} Management Fee: Waived "
             + f"Account Type: Investment"
         )
 
         self.assertEqual(expected_message, str(self.old_investment))
 
     def test_str_date_created_within_10_years_displays_management_fee_formatted(self):
-        young_date = date.today()
-
         expected_message = (
             f"Account Number: 444 Balance: $0.00\n"
-            + f"Date Created: {young_date} Management Fee: $2.00 "
+            + f"Date Created: {self.young_date} Management Fee: $2.00 "
             + f"Account Type: Investment"
         )
 
