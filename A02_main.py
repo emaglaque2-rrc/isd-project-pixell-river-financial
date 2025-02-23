@@ -106,8 +106,20 @@ print("===================================================")
 # polymorphic get_service_charges method.
 try:
     chequing_account.withdraw(chequing_account_service_charges)
+except ValueError as e:
+    print(e)
+
+try:
     savings_account.withdraw(savings_account_service_charges)
+except ValueError as e:
+    print(e)
+
+try:
     investment_account.withdraw(investment_account_service_charges)
+except ValueError as e:
+    print(e)
+
+try:
     old_investment_account.withdraw(old_investment_account_service_charges)
 except ValueError as e:
     print(e)
