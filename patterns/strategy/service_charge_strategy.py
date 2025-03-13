@@ -13,7 +13,7 @@ class ServiceChargeStrategy(ABC):
     
     """
 
-    BASE_SERVICE_CHARGE: float = 0.50
+    BASE_SERVICE_CHARGE = 0.50
 
     @abstractmethod
     def calculate_service_charges(self, account: BankAccount) -> float:
