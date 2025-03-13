@@ -8,17 +8,29 @@ Edraque Maglaque
 
 ## Assignment
 
-Assignment 1: Classes, Encapsulation and Unit Test Planning - This
+**Assignment 1**:
+
+- Classes, Encapsulation and Unit Test Planning - This
 assignment will produce some foundational classes to be used in an
 overall system. The classes will incorporate the outcomes associated
 with Module 01. Specifically, these classes will incorporate encapsulation
 through the use of private attributes and public accessors and mutators.
 
-Assignment 2: Abstraction, Inheritance, and Polymorphism - This
-assignment will enable us to apply our knowledge with more foundational concepts
-with Object Oriented Programming (OOP) Languages. We will do this by extending
-our class diagram and making 3 subclasses of the very first class we made on
-assignment 1.
+**Assignment 2**:
+
+- Abstraction, Inheritance, and Polymorphism - This
+ assignment will enable us to apply our knowledge with more foundational concepts
+ with Object Oriented Programming (OOP) Languages. We will do this by extending
+ our class diagram and making 3 subclasses of the very first class we made on
+ assignment 1.
+
+**Assignment 3**:
+
+- Design Patterns, Strategy, and Observer - This
+  assignment will address potential issues associated with the maintainability
+  and scalability of the current service charge calculation functionality from
+  assignment 2. We will address these issues by applying design patterns,
+  specifically strategy and observer patterns onto our classes.
 
 ## Encapsulation
 
