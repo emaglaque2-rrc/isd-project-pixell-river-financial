@@ -21,8 +21,13 @@ class ServiceChargeStrategy(ABC):
         Abstract calculate_service_charges method to be 
         implemented in subclass(es).
 
+        Args:
+            account (BankAccount): The Bank Account type for it's 
+                                   service charges to be calculated.
+
         Returns:
-            float: TO BE FILEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+            float: The calculated service charge for the corresponding
+                   strategy and account. 
 
         """
 
