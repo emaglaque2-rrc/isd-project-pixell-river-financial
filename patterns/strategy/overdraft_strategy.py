@@ -38,3 +38,26 @@ class OverdraftStrategy(ServiceChargeStrategy):
         except:
             self.__overdraft_rate = 0.05
 
+    def calculate_service_charges(self, account: BankAccount) -> float:
+        """
+        The strategy to calculate the service charge.
+
+        Args:
+            account (BankAccount): The Bank Account type for it's 
+                                   service charges to be calculated.
+
+        Returns:
+            float: The service charge to be applied.
+        
+        """
+        service_charge = 0 
+        
+        if account.balance >= self.__overdraft_limit:
+            service_charge = self.BASE_SERVICE_CHARGE
+        else:
+            service_charge = (
+                self.BASE_SERVICE_CHARGE  
+                + (self.__overdraft_limit - account.balance) * self.__overdraft_rate
+            )
+
+        return service_charge
