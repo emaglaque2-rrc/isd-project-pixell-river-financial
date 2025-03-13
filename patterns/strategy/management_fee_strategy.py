@@ -38,6 +38,25 @@ class ManagementFeeStrategy(ServiceChargeStrategy):
         except:
             self.__management_fee = 2.55
 
-        TEN_YEARS_AGO = date.today() - timedelta(days = 10 * 365.25)
+        self.TEN_YEARS_AGO = date.today() - timedelta(days = 10 * 365.25)
 
+    def calculate_service_charges(self, account: BankAccount) -> float:
+        """
+        The strategy to calculate the service charge.
+
+        Args:
+            account (BankAccount): The Bank Account type for it's 
+                                   service charges to be calculated.
+
+        Returns:
+            float: The service charge to be applied.
         
+        """
+
+        if self.__date_created < self.TEN_YEARS_AGO:
+            service_charge = self.BASE_SERVICE_CHARGE
+        else:
+            service_charge = self.BASE_SERVICE_CHARGE + self.__management_fee
+        
+        return service_charge
+    
