@@ -1,7 +1,7 @@
 """This module defines the InvestmentAccount subclass."""
 
 __author__ = "Edraque Maglaque"
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 from bank_account.bank_account import BankAccount
 from datetime import date, timedelta
