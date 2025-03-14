@@ -5,8 +5,10 @@ __version__ = "1.2.0"
 
 from abc import ABC, abstractmethod
 from datetime import date
+from patterns.observer.subject import Subject
+from patterns.observer.observer import Observer
 
-class BankAccount(ABC):
+class BankAccount(Subject, ABC):
     """BankAccount class: Manages a client's bank account."""
 
     def __init__(self, account_number: int, client_number: int, balance: float,
@@ -31,6 +33,8 @@ class BankAccount(ABC):
 
         """
 
+        super().__init__()
+
         if isinstance(account_number, int):
             self.__account_number = account_number
         else:
@@ -50,6 +54,9 @@ class BankAccount(ABC):
             self._date_created = date_created
         else:
             self._date_created = date.today()
+        
+        LARGE_TRANSACTION_THRESHOLD = 9999.99
+        LOW_BALANCE_LEVEL = 50.0
         
     @property
     def account_number(self) -> int:
@@ -171,4 +178,14 @@ class BankAccount(ABC):
         
         """
         pass
+
+    def attach(self, observer: Observer):
+        """
+        Attaches (adds) an observer to the list of Observers.
+
+        Args:
+            observer (Observer): Observer to be added onto the list.
+        
+        """
+        self._observers.append(observer)
     
