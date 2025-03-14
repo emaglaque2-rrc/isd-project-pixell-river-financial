@@ -68,5 +68,5 @@ class SavingsAccount(BankAccount):
             float: The service charge of the Savings Account.
         
         """
-        self.__strategy.calculate_service_charges(self)
+        return self.__strategy.calculate_service_charges(self)
     
