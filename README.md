@@ -60,3 +60,16 @@ Polymorphism was achieved in the BankAccount subclasses by:
 2. Within the client program, the get_service_charges method got called multiple
    times, however it produced different results each time based on the object
    that was calling it.
+
+## Strategy Pattern
+
+- In this application, we utilize the strategy pattern to handle various types
+  of banking accounts. Each type of bank account has it's own specific strategy
+  for calculating service charges, which is encapsulated in the whole ecosystem
+  of the Strategy Pattern classes. By implementing a design pattern for
+  calculating service charges, we are accounting for the future and scalability.
+  That means, in the future, we can EASILY accommodate a lot of different type
+  of bank accounts and not duplicate code a lot. Also, this allows us to change
+  service charge calculations in one place if we ever need to, not in multiple
+  files/classes.
+  
