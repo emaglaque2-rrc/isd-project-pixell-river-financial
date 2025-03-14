@@ -5,6 +5,7 @@ __version__ = "1.0.0"
 
 from bank_account.bank_account import BankAccount
 from datetime import date
+from patterns.strategy.minimum_balance_strategy import MinimumBalanceStrategy
 
 class SavingsAccount(BankAccount):
     """SavingsAccount subclass: Clients with savings accounts."""
@@ -40,8 +41,8 @@ class SavingsAccount(BankAccount):
             self.__minimum_balance = minimum_balance
         except:
             self.__minimum_balance = 50.00
-
-        self.SERVICE_CHARGE_PREMIUM = 2.00
+        
+        self.__strategy = MinimumBalanceStrategy(minimum_balance)
 
     def __str__(self) -> str:
         """
@@ -67,10 +68,5 @@ class SavingsAccount(BankAccount):
             float: The service charge of the Savings Account.
         
         """
-        if self.balance >= self.__minimum_balance:
-            service_charge = self.BASE_SERVICE_CHARGE
-        else:
-            service_charge = self.BASE_SERVICE_CHARGE * self.SERVICE_CHARGE_PREMIUM
-
-        return service_charge
+        self.__strategy.calculate_service_charges(self)
     
