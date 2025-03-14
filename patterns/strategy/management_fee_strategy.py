@@ -27,16 +27,8 @@ class ManagementFeeStrategy(ServiceChargeStrategy):
 
         """
 
-        if isinstance(date_created, date):
-            self.__date_created = date_created
-        else:
-            self.__date_created = date.today()
-
-        try:
-            float(management_fee)
-            self.__management_fee = management_fee
-        except:
-            self.__management_fee = 2.55
+        self.__date_created = date_created
+        self.__management_fee = management_fee
 
         self.TEN_YEARS_AGO = date.today() - timedelta(days = 10 * 365.25)
 

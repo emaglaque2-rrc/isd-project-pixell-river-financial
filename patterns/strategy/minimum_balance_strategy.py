@@ -23,14 +23,10 @@ class MinimumBalanceStrategy(ServiceChargeStrategy):
                                      are applied.
         
         """
-        try:
-            float(minimum_balance)
-            self.__minimum_balance = minimum_balance
-        except:
-            self.__minimum_balance = 50.00
-        
+
+        self.__minimum_balance = minimum_balance
         self.SERVICE_CHARGE_PREMIUM = 2.00
-        
+
     def calculate_service_charges(self, account: BankAccount) -> float:
         """
         The strategy to calculate the service charge.

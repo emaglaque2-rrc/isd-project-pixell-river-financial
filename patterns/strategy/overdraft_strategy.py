@@ -26,17 +26,8 @@ class OverdraftStrategy(ServiceChargeStrategy):
         
         """
 
-        try:
-            float(overdraft_limit)
-            self.__overdraft_limit = overdraft_limit
-        except:
-            self.__overdraft_limit = -100
-
-        try:
-            float(overdraft_rate)
-            self.__overdraft_rate = overdraft_rate
-        except:
-            self.__overdraft_rate = 0.05
+        self.__overdraft_limit = overdraft_limit
+        self.__overdraft_rate = overdraft_rate
 
     def calculate_service_charges(self, account: BankAccount) -> float:
         """
