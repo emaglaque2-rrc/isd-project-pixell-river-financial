@@ -23,3 +23,4 @@ class Observer(ABC):
         """
 
         pass
+    
