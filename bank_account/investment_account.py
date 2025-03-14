@@ -5,6 +5,7 @@ __version__ = "1.0.0"
 
 from bank_account.bank_account import BankAccount
 from datetime import date, timedelta
+from patterns.strategy.management_fee_strategy import ManagementFeeStrategy
 
 class InvestmentAccount(BankAccount):
     """InvestmentAccount subclass: Clients with investment accounts."""
@@ -42,6 +43,7 @@ class InvestmentAccount(BankAccount):
             self.__management_fee = 2.55
 
         self.TEN_YEARS_AGO = date.today() - timedelta(days = 10 * 365.25)
+        self.__strategy = ManagementFeeStrategy(date_created, management_fee)
 
     def __str__(self) -> str:
         """
@@ -73,10 +75,4 @@ class InvestmentAccount(BankAccount):
             float: The service charge of the Investment Account.
         
         """
-        if self._date_created < self.TEN_YEARS_AGO:
-            service_charge = self.BASE_SERVICE_CHARGE
-        else:
-            service_charge = self.BASE_SERVICE_CHARGE + self.__management_fee
-        
-        return service_charge
-    
+        return self.__strategy.calculate_service_charges(self)
