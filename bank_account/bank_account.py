@@ -1,7 +1,7 @@
 """Description: A class to manage BankAccount objects."""
 
 __author__ = "Edraque Maglaque"
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
 from abc import ABC, abstractmethod
 from datetime import date
@@ -51,8 +51,6 @@ class BankAccount(ABC):
         else:
             self._date_created = date.today()
         
-        self.BASE_SERVICE_CHARGE = 0.50
-
     @property
     def account_number(self) -> int:
         """
