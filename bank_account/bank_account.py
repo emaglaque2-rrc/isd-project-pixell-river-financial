@@ -107,7 +107,21 @@ class BankAccount(Subject, ABC):
             self.__balance += valid_amount
         except:
             pass
+
+        if self.__balance < self.LOW_BALANCE_LEVEL:
+            message = (
+                f"Low balance warning {self.__balance}: "
+                + f"on account {self.__account_number}."
+            )
+            self.notify(message)
         
+        if amount > self.LARGE_TRANSACTION_RECORD:
+            message = (
+                f"Large transaction {amount}: "
+                + f"on account {self.__account_number}."
+            )
+            self.notify(message)
+
     def deposit(self, amount: float) -> None:
         """
         Makes a deposit into the client's bank account.
