@@ -189,3 +189,25 @@ class BankAccount(Subject, ABC):
         """
         self._observers.append(observer)
     
+    def detach(self, observer: Observer):
+        """
+        Detaches (removes) an observer from the list of Observers.
+
+        Args:
+            observer (Observer): Observer to be removed from the list.
+        
+        """
+        if observer in self._observers:
+            self._observers.remove(observer)
+
+    def notify(self, message: str):
+        """
+        Notifies all observers of a change. 
+        
+        Args:
+            message (str): Message to be sent to observer(s).
+
+        """
+        for observer in self._observers:
+            observer.update(message)
+            
