@@ -1,20 +1,20 @@
 ---
 To: edraque4@gmail.com
 Subject: ALERT: Unusual Activity: 2025-03-16
-Message: Notification for 1: Laurie Cutrone: Low balance warning 45.0: on account 10001.
+Message: Notification for 1: Laurie Cutrone: Low balance warning $45.00: on account 10001.
 ---
 ---
 To: edraque4@gmail.com
 Subject: ALERT: Unusual Activity: 2025-03-16
-Message: Notification for 1: Laurie Cutrone: Large transaction 11111.0: on account 10002.
+Message: Notification for 1: Laurie Cutrone: Large transaction $11,111.00: on account 10002.
 ---
 ---
 To: edraque4@gmail.com
 Subject: ALERT: Unusual Activity: 2025-03-16
-Message: Notification for 1: Laurie Cutrone: Low balance warning 21.5: on account 10002.
+Message: Notification for 1: Laurie Cutrone: Low balance warning $21.50: on account 10002.
 ---
 ---
 To: edraque4@gmail.com
 Subject: ALERT: Unusual Activity: 2025-03-16
-Message: Notification for 1: Laurie Cutrone: Large transaction -12950.0: on account 10002.
+Message: Notification for 1: Laurie Cutrone: Large transaction $-12,950.00: on account 10002.
 ---

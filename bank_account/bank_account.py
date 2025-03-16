@@ -110,7 +110,7 @@ class BankAccount(Subject, ABC):
 
         if self.__balance < self.LOW_BALANCE_LEVEL:
             message = (
-                f"Low balance warning {self.__balance}: "
+                f"Low balance warning ${self.__balance:,.2f}: "
                 + f"on account {self.__account_number}."
             )
             self.notify(message)
@@ -118,7 +118,7 @@ class BankAccount(Subject, ABC):
         if amount > self.LARGE_TRANSACTION_THRESHOLD or \
         amount < -self.LARGE_TRANSACTION_THRESHOLD:
             message = (
-                f"Large transaction {amount}: "
+                f"Large transaction ${amount:,.2f}: "
                 + f"on account {self.__account_number}."
             )
             self.notify(message)
