@@ -1,7 +1,7 @@
 """Description: A class to manage Client objects."""
 
 __author__ = "Edraque Maglaque"
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 
 from email_validator import validate_email, EmailNotValidError
 from patterns.observer.observer import Observer
