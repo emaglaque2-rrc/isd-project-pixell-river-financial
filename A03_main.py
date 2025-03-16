@@ -29,13 +29,15 @@ except ValueError as e:
 # 3b. Create a SavingsAccount object with data of your choice, using the client_number 
 # of the client created in step 2.
 try:
-    chequing_account_client_one = ChequingAccount(10001, 1, 500.00, date.today(),
+    chequing_account_client_one = ChequingAccount(10001, client_one_laurie.client_number,
+                                                  500.00, date.today(),
                                                   100.00, 0.05)
 except ValueError as e:
     print(e)
 
 try:
-    savings_account_client_one = SavingsAccount(10002, 1, 1850.00, date.today(), 
+    savings_account_client_one = SavingsAccount(10002, client_one_laurie.client_number,
+                                                1850.00, date.today(), 
                                                 1000.00)
 except ValueError as e:
     print(e)
@@ -66,7 +68,8 @@ except ValueError as e:
     print(e)
 
 try:
-    savings_account_client_two = SavingsAccount(10003, 2, 2500.00, date.today(),
+    savings_account_client_two = SavingsAccount(10003, client_two_damien.client_number,
+                                                2500.00, date.today(),
                                                 1500.00)
 except ValueError as e:
     print(e)

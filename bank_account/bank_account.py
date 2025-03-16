@@ -1,7 +1,7 @@
 """Description: A class to manage BankAccount objects."""
 
 __author__ = "Edraque Maglaque"
-__version__ = "1.2.0"
+__version__ = "2.0.0"
 
 from abc import ABC, abstractmethod
 from datetime import date
@@ -116,7 +116,7 @@ class BankAccount(Subject, ABC):
             self.notify(message)
         
         if amount > self.LARGE_TRANSACTION_THRESHOLD or \
-        amount < -self.LARGE_TRANSACTION_THRESHOLD:
+            amount < -self.LARGE_TRANSACTION_THRESHOLD:
             message = (
                 f"Large transaction ${amount:,.2f}: "
                 + f"on account {self.__account_number}."
