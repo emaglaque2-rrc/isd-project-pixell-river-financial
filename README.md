@@ -73,3 +73,17 @@ Polymorphism was achieved in the BankAccount subclasses by:
   service charge calculations in one place if we ever need to, not in multiple
   files/classes.
   
+## Observer Pattern
+
+- In this application, we utilize the observer pattern to notify clients about
+  any unusual activity within their accounts. We do this by emailing them about
+  the details of the transaction that transpired. Now, we also implemented a
+  "subscription" mechanism where the clients have the option to either receive
+  or not receive the notifications/emails. Essentially, the BankAccount class
+  which is the Subject maintains a list of subscribed clients and notifies them
+  when either their account balance is below a pre-defined minimum threshold OR
+  a significant transaction has occurred. By implementing a design pattern for
+  notifying clients, this enhances their user experience when they're using our
+  services and we can extend this feature further by implementing various types
+  of notifications without modifying existing code/logic.
+  
