@@ -114,7 +114,8 @@ class Client(Observer):
         email alert to the client with details about the event.
 
         Args:
-            message (str): The notification message to send to the client.
+            message (str): The notification message to send to 
+                           the client.
         
         """
         subject = f"ALERT: Unusual Activity: {date.today()}"
