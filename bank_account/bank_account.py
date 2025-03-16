@@ -55,8 +55,8 @@ class BankAccount(Subject, ABC):
         else:
             self._date_created = date.today()
         
-        LARGE_TRANSACTION_THRESHOLD = 9999.99
-        LOW_BALANCE_LEVEL = 50.0
+        self.LARGE_TRANSACTION_THRESHOLD = 9999.99
+        self.LOW_BALANCE_LEVEL = 50.0
         
     @property
     def account_number(self) -> int:
@@ -115,7 +115,8 @@ class BankAccount(Subject, ABC):
             )
             self.notify(message)
         
-        if amount > self.LARGE_TRANSACTION_RECORD:
+        if amount > self.LARGE_TRANSACTION_THRESHOLD or \
+        amount < -self.LARGE_TRANSACTION_THRESHOLD:
             message = (
                 f"Large transaction {amount}: "
                 + f"on account {self.__account_number}."
