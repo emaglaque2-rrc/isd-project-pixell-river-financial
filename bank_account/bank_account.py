@@ -115,8 +115,7 @@ class BankAccount(Subject, ABC):
             )
             self.notify(message)
         
-        if amount > self.LARGE_TRANSACTION_THRESHOLD or \
-            amount < -self.LARGE_TRANSACTION_THRESHOLD:
+        if abs(amount) > self.LARGE_TRANSACTION_THRESHOLD:
             message = (
                 f"Large transaction ${amount:,.2f}: "
                 + f"on account {self.__account_number}."
