@@ -10,6 +10,8 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import csv
 from datetime import datetime
 import logging
+from bank_account import *
+from client.client import Client
 
 # *******************************************************************************
 # GIVEN LOGGING AND FILE ACCESS CODE
@@ -52,15 +54,34 @@ def load_data()->tuple[dict,dict]:
     """
     Populates a client dictionary and an account dictionary with 
     corresponding data from files within the data directory.
+    
     Returns:
-        tuple containing client dictionary and account dictionary.
+        tuple[dict,dict]: A tuple containing client dictionary and 
+                          account dictionary.
     """
+
     client_listing = {}
     accounts = {}
 
     # READ CLIENT DATA 
     with open(clients_csv_path, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
+
+        for record in reader:
+            try:
+                client_number = int(record["client_number"])
+                first_name = record["first_name"]
+                last_name = record["last_name"]
+                email_address = record["email_address"]
+
+                client = Client(client_number, first_name, last_name, 
+                                email_address)
+                client_listing[client_number] = client
+            except Exception as e:
+                logging.error(f"Unable to create client: {str(e)}")
+
+
+
         
 
     # READ ACCOUNT DATA
@@ -75,9 +96,11 @@ def update_data(updated_account: BankAccount) -> None:
     """
     A function to update the accounts.csv file with balance 
     data provided in the BankAccount argument.
+
     Args:
         updated_account (BankAccount): A bank account containing an updated balance.
     """
+
     updated_rows = []
 
     with open(accounts_csv_path, mode='r', newline='') as file:
