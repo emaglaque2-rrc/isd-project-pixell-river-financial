@@ -32,6 +32,17 @@ through the use of private attributes and public accessors and mutators.
   assignment 2. We will address these issues by applying design patterns,
   specifically strategy and observer patterns onto our classes.
 
+**Assignment 4**:
+
+- PySide6, GUI, and data management - This assignment will incorporate a
+  Graphical User Interface (GUI) into the PiXELL-River Financial banking system.
+  The end product will include a lookup window from which users can view
+  existing Client and corresponding Bank Account data. The user can then select
+  a Bank Account and perform deposit and withdraw transactions against the selected
+  Bank Account. PySide6 will be used to produce the windows and the design of
+  these windows will be given so that students can focus on implementing the
+  Event Driven Programming Paradigm into their existing set of classes.
+
 ## Encapsulation
 
 Encapsulation was achieved in the BankAccount class by:
