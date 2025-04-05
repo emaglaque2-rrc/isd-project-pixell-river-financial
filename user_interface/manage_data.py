@@ -96,6 +96,7 @@ def load_data()->tuple[dict,dict]:
                 date_created = datetime.strptime(record["date_created"], "%Y-%m-%d").date()
                 account_type = record["account_type"]
                 
+                # Creates appropriate account type based on account_type field
                 if account_type == "ChequingAccount":
                     overdraft_limit = float(record["overdraft_limit"])
                     overdraft_rate = float(record["overdraft_rate"])
@@ -118,11 +119,21 @@ def load_data()->tuple[dict,dict]:
                 else:
                     raise ValueError("Not a valid account type.")
 
+                # Check if client_number exists in the dictionary populated above
+                # before adding account
+                if client_number in client_listing:
+                    accounts[account_number] = account
+                else:
+                    logging.error(
+                        f"Bank Account: {account_number} contains "
+                        + f"invalid Client Number: {client_number}"
+                        )
+
             except Exception as e:
                 logging.error(f"Unable to create bank account: {str(e)}")
 
     # RETURN STATEMENT
-    
+    return (client_listing, accounts)
 
 
 def update_data(updated_account: BankAccount) -> None:
