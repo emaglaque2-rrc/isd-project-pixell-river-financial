@@ -86,7 +86,40 @@ def load_data()->tuple[dict,dict]:
 
     # READ ACCOUNT DATA
     with open(accounts_csv_path, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)  
+        reader = csv.DictReader(csvfile)
+
+        for record in reader:
+            try:
+                account_number = int(record["account_number"])
+                client_number = int(record["client_number"])
+                balance = float(record["balance"])
+                date_created = datetime.strptime(record["date_created"], "%Y-%m-%d").date()
+                account_type = record["account_type"]
+                
+                if account_type == "ChequingAccount":
+                    overdraft_limit = float(record["overdraft_limit"])
+                    overdraft_rate = float(record["overdraft_rate"])
+                    account = ChequingAccount(account_number, client_number,
+                                              balance, date_created,
+                                              overdraft_limit, overdraft_rate)
+
+                elif account_type == "InvestmentAccount":
+                    management_fee = float(record["management_fee"])
+                    account = InvestmentAccount(account_number, client_number,
+                                                balance, date_created,
+                                                management_fee)
+                
+                elif account_type == "SavingsAccount":
+                    minimum_balance = float(record["minimum_balance"])
+                    account = SavingsAccount(account_number, client_number,
+                                             balance, date_created,
+                                             minimum_balance)
+                
+                else:
+                    raise ValueError("Not a valid account type.")
+
+            except Exception as e:
+                logging.error(f"Unable to create bank account: {str(e)}")
 
     # RETURN STATEMENT
     
