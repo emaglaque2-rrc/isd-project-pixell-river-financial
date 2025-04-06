@@ -99,7 +99,7 @@ class ClientLookupWindow(LookupWindow):
 
         Args:
             row (int): Row that has been clicked on.
-            column(int): Column that has been clicked on.
+            column (int): Column that has been clicked on.
 
         """
 
@@ -115,6 +115,7 @@ class ClientLookupWindow(LookupWindow):
             if account_number in self.__accounts:
                 bank_account = self.__accounts[account_number]
                 account_details = AccountDetailsWindow(bank_account)
+                account_details.balance_updated.connect(self.__update_data)
                 account_details.exec()
             else:
                 QMessageBox.information(self, "No Bank Account",
@@ -123,3 +124,22 @@ class ClientLookupWindow(LookupWindow):
             QMessageBox.information(self, "Invalid Selection",
                                     "Please select a valid record.")
 
+    @Slot(BankAccount)
+    def __update_data(self, account: BankAccount):
+        """
+        Updates the account table with the new account balance.
+
+        Args:
+            account (BankAccount): The updated BankAccount object.
+        
+        """
+
+        for row in range(self.account_table.rowCount()):
+            account_number_item = self.account_table.item(row, 0)
+            if int(account_number_item.text()) == account.account_number:
+                self.account_table.item(row, 1).setText(f"${account.balance:,.2f}")
+
+        self.__accounts[account.account_number] = account
+
+        update_data(account)
+            

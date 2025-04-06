@@ -12,6 +12,7 @@ from PySide6.QtCore import Qt, Slot
 class AccountDetailsWindow(DetailsWindow):
     """
     A class used to display account details and perform bank account transactions.
+    
     """
 
     balance_updated = Signal(BankAccount)
@@ -19,11 +20,15 @@ class AccountDetailsWindow(DetailsWindow):
     def __init__(self, account: BankAccount) -> None:
         """
         Initializes a new instance of the ExtendedAccountDetails window.
+
         Args:
             account: The bank account to be displayed.
+
         Returns:
             None
+
         """
+
         super().__init__()
 
         if isinstance(account, BankAccount):
@@ -70,11 +75,13 @@ class AccountDetailsWindow(DetailsWindow):
             self.balance_label.setText(f"${self.__account.balance:,.2f}")
             self.transaction_amount_edit.setText("")
             self.transaction_amount_edit.setFocus()
+
+            self.balance_updated.emit(self.__account)
         except Exception as e:
             QMessageBox.information(
                                     self,
                                     f"{transaction_type} Failed",
-                                    {str(e)})
+                                    str(e))
             self.transaction_amount_edit.setText("")
             self.transaction_amount_edit.setFocus()
 
