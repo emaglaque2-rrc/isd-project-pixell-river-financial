@@ -56,7 +56,8 @@ class ClientLookupWindow(LookupWindow):
             return
         
         client = self.__client_listing[client_number]
-        self.client_info_label.setText(f"{client.first_name} {client.last_name}")
+        self.client_info_label.setText(f"Client Name: {client.first_name} "
+                                       + f"{client.last_name}")
 
         # maybe thing here to reset the tablee? think ahead 
 
@@ -85,4 +86,4 @@ class ClientLookupWindow(LookupWindow):
 
                 row += 1
         
-        self.account_table.resizeColumnsToContents
+        self.account_table.resizeColumnsToContents()
