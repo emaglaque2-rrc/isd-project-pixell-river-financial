@@ -29,7 +29,7 @@ class ClientLookupWindow(LookupWindow):
 
         self.lookup_button.clicked.connect(self.__on_lookup_client)
         self.client_number_edit.textChanged.connect(self.__on_text_changed)
-        #self.account_table.cellClicked.connect(self.__on_select_account)
+        self.account_table.cellClicked.connect(self.__on_select_account)
 
     @Slot()
     def __on_lookup_client(self):
@@ -58,10 +58,6 @@ class ClientLookupWindow(LookupWindow):
         client = self.__client_listing[client_number]
         self.client_info_label.setText(f"Client Name: {client.first_name} "
                                        + f"{client.last_name}")
-
-        # maybe thing here to reset the tablee? think ahead 
-
-        # COME BACK TO THISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 
         # counter for the for-loop below
         row = 0
@@ -94,4 +90,36 @@ class ClientLookupWindow(LookupWindow):
         """Clears account table when the client number text changes."""
 
         self.account_table.setRowCount(0)
-        
+
+    @Slot(int, int)
+    def __on_select_account(self, row: int, column: int) -> None:
+        """
+        Opens the account details window when a bank account is 
+        selected.
+
+        Args:
+            row (int): Row that has been clicked on.
+            column(int): Column that has been clicked on.
+
+        """
+
+        account_number_item = self.account_table.item(row, 0).text()
+
+        # Checks if account_number is not null/blank
+        if account_number_item:
+            # If the previous validation passed, this will now proceed
+            # to the next validation, if not then it will hit the bottom
+            # `else`. Also converting it to an int as that's what's
+            # it's stored as in self__accounts.
+            account_number = int(account_number_item)
+            if account_number in self.__accounts:
+                bank_account = self.__accounts[account_number]
+                account_details = AccountDetailsWindow(bank_account)
+                account_details.exec()
+            else:
+                QMessageBox.information(self, "No Bank Account",
+                                        "Bank Account selected does not exist.")
+        else:
+            QMessageBox.information(self, "Invalid Selection",
+                                    "Please select a valid record.")
+
