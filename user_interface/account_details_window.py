@@ -79,4 +79,10 @@ class AccountDetailsWindow(DetailsWindow):
             self.transaction_amount_edit.setFocus()
 
     def __on_exit(self):
-        pass
+        """
+        Closes the QDialog returning the user to the Client 
+        Lookup Window.
+        
+        """
+
+        self.close()
