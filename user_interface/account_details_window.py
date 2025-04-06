@@ -1,5 +1,7 @@
+"""The module defines the AccountDetailsWindow class."""
+
 __author__ = "ACE Faculty"
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 __credits__ = "Edraque Maglaque"
 
 from ui_superclasses.details_window import DetailsWindow
@@ -11,7 +13,8 @@ from PySide6.QtCore import Qt, Slot
 
 class AccountDetailsWindow(DetailsWindow):
     """
-    A class used to display account details and perform bank account transactions.
+    A class used to display account details and perform bank 
+    account transactions.
     
     """
 
@@ -19,13 +22,10 @@ class AccountDetailsWindow(DetailsWindow):
 
     def __init__(self, account: BankAccount) -> None:
         """
-        Initializes a new instance of the ExtendedAccountDetails window.
+        Initializes a new instance of the AccountDetailsWindow.
 
         Args:
-            account: The bank account to be displayed.
-
-        Returns:
-            None
+            account (BankAccount): The bank account to be displayed.
 
         """
 
@@ -44,15 +44,10 @@ class AccountDetailsWindow(DetailsWindow):
             self.reject()
     
     @Slot()
-    def __on_apply_transaction(self):
+    def __on_apply_transaction(self) -> None:
         """
         Performs a deposit or withdrawal transaction based on which 
         button was clicked, and updates the balance label accordingly.
-
-        Raises:
-            ValueError: Raised when transaction_amount is not numeric, 
-                        not positive, or when the withdrawal amount 
-                        exceeds the account's balance.
         
         """
 
@@ -85,7 +80,8 @@ class AccountDetailsWindow(DetailsWindow):
             self.transaction_amount_edit.setText("")
             self.transaction_amount_edit.setFocus()
 
-    def __on_exit(self):
+    @Slot()
+    def __on_exit(self) -> None:
         """
         Closes the QDialog returning the user to the Client 
         Lookup Window.

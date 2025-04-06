@@ -1,5 +1,7 @@
+"""The module defines the ClientLookupWindow class."""
+
 __author__ = "ACE Faculty"
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 __credits__ = "Edraque Maglaque"
 
 from PySide6.QtWidgets import QTableWidgetItem, QMessageBox
@@ -32,7 +34,7 @@ class ClientLookupWindow(LookupWindow):
         self.account_table.cellClicked.connect(self.__on_select_account)
 
     @Slot()
-    def __on_lookup_client(self):
+    def __on_lookup_client(self) -> None:
         """
         Retrieves client information based on the client_number_edit
         /textbox widget, then displays the client data such as bank
@@ -86,7 +88,7 @@ class ClientLookupWindow(LookupWindow):
         self.account_table.resizeColumnsToContents()
 
     @Slot()
-    def __on_text_changed(self):
+    def __on_text_changed(self) -> None:
         """Clears account table when the client number text changes."""
 
         self.account_table.setRowCount(0)
@@ -125,7 +127,7 @@ class ClientLookupWindow(LookupWindow):
                                     "Please select a valid record.")
 
     @Slot(BankAccount)
-    def __update_data(self, account: BankAccount):
+    def __update_data(self, account: BankAccount) -> None:
         """
         Updates the account table with the new account balance.
 

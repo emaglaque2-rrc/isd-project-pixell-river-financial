@@ -1,5 +1,7 @@
+"""Description: A module filled with methods that manage data. """
+
 __author__ = "ACE Faculty"
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 __credits__ = "Edraque Maglaque"
 
 import os
@@ -50,14 +52,20 @@ accounts_csv_path = os.path.join(data_dir, 'accounts.csv')
 
 
 
-def load_data()->tuple[dict,dict]:
+def load_data() -> tuple[dict,dict]:
     """
     Populates a client dictionary and an account dictionary with 
     corresponding data from files within the data directory.
     
     Returns:
-        tuple[dict,dict]: A tuple containing client dictionary and 
-                          account dictionary.
+        tuple[dict,dict]: A tuple containing 2 dictionaries which are:
+                          the client dictionary (client_listing) and 
+                          the account dictionary (accounts).
+
+    Raises:
+        ValueError: When the account_type value is not one of 
+                    the BankAccount subtypes.
+
     """
 
     client_listing = {}
@@ -93,7 +101,8 @@ def load_data()->tuple[dict,dict]:
                 account_number = int(record["account_number"])
                 client_number = int(record["client_number"])
                 balance = float(record["balance"])
-                date_created = datetime.strptime(record["date_created"], "%Y-%m-%d").date()
+                date_created = datetime.strptime(record["date_created"], 
+                                                 "%Y-%m-%d").date()
                 account_type = record["account_type"]
                 
                 # Creates appropriate account type based on account_type field
@@ -142,7 +151,9 @@ def update_data(updated_account: BankAccount) -> None:
     data provided in the BankAccount argument.
 
     Args:
-        updated_account (BankAccount): A bank account containing an updated balance.
+        updated_account (BankAccount): A bank account containing an 
+                                       updated balance.
+
     """
 
     updated_rows = []

@@ -1,3 +1,10 @@
+"""
+Description: A client program written to verify implementation 
+of the Event-Driven Programming Paradigm implemented on top of the 
+Object-Oriented Programming Paradigm
+
+"""
+
 __author__ = "ACE Faculty"
 __version__ = "1.0.0"
 __credits__ = "Edraque Maglaque"
@@ -16,3 +23,4 @@ if __name__ == "__main__":
     mainWindow = ClientLookupWindow()
     mainWindow.show()
     sys.exit(app.exec())
+    

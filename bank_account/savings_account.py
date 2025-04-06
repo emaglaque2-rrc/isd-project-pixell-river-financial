@@ -48,7 +48,7 @@ class SavingsAccount(BankAccount):
         """
         Returns a string representation of a SavingsAccount object.
 
-         Returns:
+        Returns:
             str: SavingsAccount formatted as a string.
         
         """
