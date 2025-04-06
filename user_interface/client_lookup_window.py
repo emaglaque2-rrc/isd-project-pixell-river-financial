@@ -28,7 +28,7 @@ class ClientLookupWindow(LookupWindow):
         self.__accounts = accounts
 
         self.lookup_button.clicked.connect(self.__on_lookup_client)
-        #self.client_number_edit.textChanged.connect(self.__on_text_changed)
+        self.client_number_edit.textChanged.connect(self.__on_text_changed)
         #self.account_table.cellClicked.connect(self.__on_select_account)
 
     @Slot()
@@ -61,6 +61,7 @@ class ClientLookupWindow(LookupWindow):
 
         # maybe thing here to reset the tablee? think ahead 
 
+        # COME BACK TO THISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 
         # counter for the for-loop below
         row = 0
@@ -87,3 +88,10 @@ class ClientLookupWindow(LookupWindow):
                 row += 1
         
         self.account_table.resizeColumnsToContents()
+
+    @Slot()
+    def __on_text_changed(self):
+        """Clears account table when the client number text changes."""
+
+        self.account_table.setRowCount(0)
+        
