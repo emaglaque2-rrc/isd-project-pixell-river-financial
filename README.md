@@ -98,3 +98,23 @@ Polymorphism was achieved in the BankAccount subclasses by:
   services and we can extend this feature further by implementing various types
   of notifications without modifying existing code/logic.
   
+## Event-Driven Programming Paradigm
+
+- In this application, we utilized the event-driven programming paradigm
+  to elevate our pre-established family/hierarchy of classes and structure
+  from the object-oriented programming paradigm. Doing so enabled us to
+  create a responsive and interactive user experience for a Windows
+  application. We made use of signals and slots as these are essentially
+  the key components for a paradigm like this, but essentially when a user
+  does something like click a button, change text in an input field, select
+  a table cell, or even changing data.. it all emits a signal. Now, that's
+  where the Slots come in play, they respond to that signal and define what
+  actions should occur when a particular event happens. I won't get too
+  detailed with the slots, but a few simple ones are if a user clicks exit
+  in the account detail window, it will close that window. And if a user
+  enters a client number AND clicks the lookup client button (signal), it
+  will trigger a slot that will display EITHER that particular client's
+  information OR display an error message. By implementing the event-driven
+  programming paradigm, this allows us to update the interface dynamically.
+  Also, the application can handle multiple tasks asynchronously now
+  (without compromising performance)!
