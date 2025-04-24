@@ -171,3 +171,15 @@ class ClientLookupWindow(LookupWindow):
             self.__toggle_filter(True)
         else:
             self.__toggle_filter(False)
+
+    def __toggle_filter(self, filter_on: bool) -> None:
+        """
+        Toggles the display of the filter widgets to indicate to the 
+        user whether or not filtering is currently taking place.
+
+        Args:
+            filter_on (bool): This indicates the user if filtering is
+                              taking place. True if filtering is active,
+                              and False otherwise!
+                              
+        """
