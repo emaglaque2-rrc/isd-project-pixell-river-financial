@@ -164,7 +164,7 @@ class ClientLookupWindow(LookupWindow):
             for row in range(self.account_table.rowCount()):
                 record = self.account_table.item(row, filter_combo_box_value)
 
-                if filter_edit_text_value in record.text():
+                if record and filter_edit_text_value in record.text():
                     self.account_table.setRowHidden(row, False)
                 else:
                     # This row does not meet the criteria so it's hidden
