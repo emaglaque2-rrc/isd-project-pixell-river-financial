@@ -88,6 +88,8 @@ class ClientLookupWindow(LookupWindow):
         
         self.account_table.resizeColumnsToContents()
 
+        self.__toggle_filter(False)
+
     @Slot()
     def __on_text_changed(self) -> None:
         """Clears account table when the client number text changes."""
