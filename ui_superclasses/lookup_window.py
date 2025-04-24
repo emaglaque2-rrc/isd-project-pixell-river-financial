@@ -14,8 +14,9 @@ class LookupWindow(QMainWindow):
     def __init__(self):
         """
         Initializes the Client Lookup window by adding 
-        various widgets and setting properties. Widgets include: client_number_edit, 
-        client_info_label, lookup_button and account_table.
+        various widgets and setting properties. Widgets include: 
+        client_number_edit, client_info_label, lookup_button and 
+        account_table.
         """
         super().__init__()
 
@@ -86,8 +87,9 @@ class LookupWindow(QMainWindow):
         """
         Resets the display.
 
-        This function Clears contents of display fields client_number_edit, client_info_label 
-        and account_table, and resets focus to the client_number_edit.
+        This function Clears contents of display fields 
+        client_number_edit, client_info_label and account_table, and 
+        resets focus to the client_number_edit.
 
             reset_display()
 
