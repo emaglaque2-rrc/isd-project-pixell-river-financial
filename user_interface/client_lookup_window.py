@@ -167,3 +167,7 @@ class ClientLookupWindow(LookupWindow):
                 else:
                     # This row does not meet the criteria so it's hidden
                     self.account_table.setRowHidden(row, True)
+        
+            self.__toggle_filter(True)
+        else:
+            self.__toggle_filter(False)
