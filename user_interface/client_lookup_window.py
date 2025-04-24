@@ -189,22 +189,22 @@ class ClientLookupWindow(LookupWindow):
         self.filter_button.setEnabled(True)
 
         if filter_on:
-            self.filter_button.text("Reset")
+            self.filter_button.setText("Reset")
 
             self.filter_combo_box.setEnabled(False)
             self.filter_edit.setEnabled(False)
 
-            self.filter_label.text("Data is Currently Filtered")
+            self.filter_label.setText("Data is Currently Filtered")
         else:
-            self.filter_button.text("Apply Filter")
+            self.filter_button.setText("Apply Filter")
             
             self.filter_combo_box.setEnabled(True)
             self.filter_edit.setEnabled(True)
 
-            self.filter_edit.text("")
+            self.filter_edit.setText("")
             self.filter_combo_box.setCurrentIndex(0)
 
             for row in range(self.account_table.rowCount()):
                 self.account_table.setRowHidden(row, False)
             
-            self.filter_label.text("Data is Not Currently Filtered")
+            self.filter_label.setText("Data is Not Currently Filtered")
