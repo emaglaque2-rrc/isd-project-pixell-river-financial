@@ -135,10 +135,10 @@ Polymorphism was achieved in the BankAccount subclasses by:
   of what they want specifically. Within the ClientLookUpWindow class, we
   implemented the only 2 functions that dealt with the filtering component.
   When invoked/triggered, our functions evaluate each account record against
-  the user's search criteria which come from the self.filter_combo_boxx and
+  the user's search criteria which come from the self.filter_combo_box and
   self.filter_edit values. Then, instead of making a whole new data collection,
   we just visually hide the non-matching records (from the user's search
-  criteria); this approach lets us preserve the data integrity and strucutre we
+  criteria); this approach lets us preserve the data integrity and structure we
   have while providing immediate visual feedback to the user. We also have clear
   feedback as to when the filteration is active or not through a toggle, and
   that toggle utilizes labels, texts, and buttons to indicate to users the
