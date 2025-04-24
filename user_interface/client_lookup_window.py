@@ -32,6 +32,7 @@ class ClientLookupWindow(LookupWindow):
         self.lookup_button.clicked.connect(self.__on_lookup_client)
         self.client_number_edit.textChanged.connect(self.__on_text_changed)
         self.account_table.cellClicked.connect(self.__on_select_account)
+        self.filter_button.clicked.connect(self.__on_filter_clicked)
 
     @Slot()
     def __on_lookup_client(self) -> None:
@@ -144,4 +145,12 @@ class ClientLookupWindow(LookupWindow):
         self.__accounts[account.account_number] = account
 
         update_data(account)
-            
+
+    @Slot()
+    def __on_filter_clicked() -> None:
+        """
+        Filters or resets the account table based on the current state
+        of the filter button and user input.
+
+        ********UNFINISHED ********C HECECK
+        """
