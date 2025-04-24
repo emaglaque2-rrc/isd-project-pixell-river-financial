@@ -181,5 +181,28 @@ class ClientLookupWindow(LookupWindow):
             filter_on (bool): This indicates the user if filtering is
                               taking place. True if filtering is active,
                               and False otherwise!
-                              
+
         """
+
+        self.filter_button.setEnabled(True)
+
+        if filter_on:
+            self.filter_button.text("Reset")
+
+            self.filter_combo_box.setEnabled(False)
+            self.filter_edit.setEnabled(False)
+
+            self.filter_label.text("Data is Currently Filtered")
+        else:
+            self.filter_button.text("Apply Filter")
+            
+            self.filter_combo_box.setEnabled(True)
+            self.filter_edit.setEnabled(True)
+
+            self.filter_edit.text("")
+            self.filter_combo_box.setCurrentIndex(0)
+
+            for row in range(self.account_table.rowCount()):
+                self.account_table.setRowHidden(row, False)
+            
+            self.filter_label.text("Data is Not Currently Filtered")
