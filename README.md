@@ -127,3 +127,20 @@ Polymorphism was achieved in the BankAccount subclasses by:
   programming paradigm, this allows us to update the interface dynamically.
   Also, the application can handle multiple tasks asynchronously now
   (without compromising performance)!
+
+## Filtering
+
+- In this application, we implemented a dynamic filtering system that allows
+  users to locate specific accounts based on a filter criteria and an option
+  of what they want specifically. Within the ClientLookUpWindow class, we
+  implemented the only 2 functions that dealt with the filtering component.
+  When invoked/triggered, our functions evaluate each account record against
+  the user's search criteria which come from the self.filter_combo_boxx and
+  self.filter_edit values. Then, instead of making a whole new data collection,
+  we just visually hide the non-matching records (from the user's search
+  criteria); this approach lets us preserve the data integrity and strucutre we
+  have while providing immediate visual feedback to the user. We also have clear
+  feedback as to when the filteration is active or not through a toggle, and
+  that toggle utilizes labels, texts, and buttons to indicate to users the
+  current filtering state.
+  
