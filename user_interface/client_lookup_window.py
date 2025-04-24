@@ -154,7 +154,6 @@ class ClientLookupWindow(LookupWindow):
         Filters or resets the account table based on the current state
         of the filter button and user input.
 
-        ********UNFINISHED ********C HECECK
         """
 
         if self.filter_button.text() == "Apply Filter":
