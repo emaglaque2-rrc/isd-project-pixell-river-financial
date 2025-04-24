@@ -147,10 +147,23 @@ class ClientLookupWindow(LookupWindow):
         update_data(account)
 
     @Slot()
-    def __on_filter_clicked() -> None:
+    def __on_filter_clicked(self) -> None:
         """
         Filters or resets the account table based on the current state
         of the filter button and user input.
 
         ********UNFINISHED ********C HECECK
         """
+
+        if self.filter_button.text() == "Apply Filter":
+            filter_combo_box_value = self.filter_combo_box.currentIndex()
+            filter_edit_text_value = self.filter_edit.text()
+
+            for row in range(self.account_table.rowCount()):
+                record = self.account_table.item(row, filter_combo_box_value)
+
+                if filter_edit_text_value in record.text():
+                    self.account_table.setRowHidden(row, False)
+                else:
+                    # This row does not meet the criteria so it's hidden
+                    self.account_table.setRowHidden(row, True)
