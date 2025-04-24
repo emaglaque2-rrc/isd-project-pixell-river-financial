@@ -1,6 +1,10 @@
+"""A client program written to verify correctness of the assignment 5 
+classes.
+"""
+
 __author__ = "ACE Faculty"
-__version__ = "1.0.0"
-__credits__ = ""
+__version__ = "1.1.0"
+__credits__ = "Edraque Maglaque"
 
 # REQUIREMENT - add import statements
 from user_interface.client_lookup_window import ClientLookupWindow

@@ -1,7 +1,7 @@
 """The module defines the ClientLookupWindow class."""
 
 __author__ = "ACE Faculty"
-__version__ = "2.0.0"
+__version__ = "3.0.0"
 __credits__ = "Edraque Maglaque"
 
 from PySide6.QtWidgets import QTableWidgetItem, QMessageBox
